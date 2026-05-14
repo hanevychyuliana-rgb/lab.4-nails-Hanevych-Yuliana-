@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nail Master Pro | Магазин для майстрів</title>
     <link rel="stylesheet" href="style.css">
-   
 </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <div class="logo">Nail  Master 2026</div>
+            <div class="logo">Nail Master 2026</div>
             
             <div class="search-bar">
                 <input type="text" id="mainSearch" placeholder="Пошук товарів...">
@@ -26,78 +25,102 @@
     </header>
 
     <main>
-       <section id="promo-carousel" class="section-padding">
-    <div class="carousel-container">
-        <button id="prevBtn" class="caro-btn">❮</button>
-
-        <div id="carousel-content">
-            <h2 id="promo-title">Весняний розпродаж!</h2>
-            <p id="promo-text">Знижки до -30% на всі гель-лаки бренду Saga.</p>
-            <button class="btn-main" style="width: auto; padding: 10px 30px;">Детальніше</button>
-        </div>
-
-        <button id="nextBtn" class="caro-btn">❯</button>
-    </div>
-</section>
-
-       <section id="news-section" class="section-padding">
-    <h2>Стрічка новин</h2>
-    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-        
-        <div style="flex: 1; min-width: 250px; background: #fff5f7; padding: 15px; border-radius: 10px;">
-            <div id="news-sidebar-list">
+        <section id="promo-carousel" class="section-padding">
+            <div class="carousel-container">
+                <button id="prevBtn" class="caro-btn">❮</button>
+                <div id="carousel-content">
+                    <h2 id="promo-title">Весняний розпродаж!</h2>
+                    <p id="promo-text">Знижки до -30% на всі гель-лаки бренду Saga.</p>
+                    <button class="btn-main" style="width: auto; padding: 10px 30px;">Детальніше</button>
                 </div>
-            <button class="btn-main" onclick="dodatyNovynu()" style="margin-top: 10px;">Більше новин</button>
-        </div>
+                <button id="nextBtn" class="caro-btn">❯</button>
+            </div>
+        </section>
 
-        <div id="news-main-view" style="flex: 2; min-width: 300px; border: 2px solid pink; padding: 20px; border-radius: 10px;">
-            <div id="full-text-news">Клікніть на новину зліва, щоб прочитати її повністю.</div>
-        </div>
+        <section id="news-section" class="section-padding">
+            <h2>Стрічка новин</h2>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px; background: #fff5f7; padding: 15px; border-radius: 10px;">
+                    <div id="news-sidebar-list"></div>
+                    <button class="btn-main" onclick="dodatyNovynu()" style="margin-top: 10px;">Більше новин</button>
+                </div>
+                <div id="news-main-view" style="flex: 2; min-width: 300px; border: 2px solid pink; padding: 20px; border-radius: 10px;">
+                    <div id="full-text-news">Клікніть на новину зліва, щоб прочитати її повністю.</div>
+                </div>
+            </div>
+        </section>
 
-    </div>
-</section>
+        <section id="catalog-section" class="section-padding">
+            <h2>Каталог матеріалів</h2>
+            <div class="sorting-controls">
+                <select id="sortPrice">
+                    <option value="default">Сортувати за ціною</option>
+                    <option value="low">Від дешевих</option>
+                    <option value="high">Від дорогих</option>
+                </select>
+                <input type="number" id="minPrice" placeholder="Ціна від">
+                <input type="number" id="maxPrice" placeholder="Ціна до">
+            </div>
+            
+            <div class="filter-panel">
+                <button onclick="show('все')">Все</button>
+                <button onclick="show('інструменти')">Інструменти</button>
+                <button onclick="show('матеріали')">Матеріали</button>
+                <button onclick="show('обладнання')">Обладнання</button>
+                <button onclick="show('нарощування')">Нарощування</button>
+                <button onclick="show('рідини')">Рідини</button>
+                <button onclick="show('витратні матеріали')">Витратні мат.</button>
+                <button onclick="show('стерилізація')">Стерилізація</button>
+                <button onclick="show('догляд')">Догляд</button>
+                <button onclick="show('декор')">Декор</button>
+            </div>
 
-       <section id="catalog-section" class="section-padding">
-    <h2>Каталог матеріалів</h2>
+            <div id="product-grid" class="product-grid"></div>
+            <div id="pagination" class="pagination-container"></div>
+        </section>
 
-    <div class="sorting-controls">
-        <select id="sortPrice">
-            <option value="default">Сортувати за ціною</option>
-            <option value="low">Від дешевих</option>
-            <option value="high">Від дорогих</option>
-        </select>
-        <input type="number" id="minPrice" placeholder="Ціна від">
-        <input type="number" id="maxPrice" placeholder="Ціна до">
-    </div>
+        <section id="gallery-section">
+            <h2>Галерея ідей</h2>
+            <div id="gallery-grid" class="gallery-container"></div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button id="load-more-btn" class="btn-main" onclick="loadMore()">Більше ідей</button>
+            </div>
+        </section>
 
-    <div class="filter-panel">
-            <button onclick="show('все')">Все</button>
-            <button onclick="show('інструменти')">Інструменти</button>
-            <button onclick="show('матеріали')">Матеріали</button>
-            <button onclick="show('обладнання')">Обладнання</button>
-            <button onclick="show('нарощування')">Нарощування</button>
-            <button onclick="show('рідини')">Рідини</button>
-            <button onclick="show('витратні матеріали')">Витратні мат.</button>
-            <button onclick="show('стерилізація')">Стерилізація</button>
-            <button onclick="show('догляд')">Догляд</button>
-            <button onclick="show('декор')">Декор</button>
-     </div>
+        <section id="admin-panel" class="section-padding" style="display: none; background: #fff5f7; border: 2px dashed pink; padding: 20px; border-radius: 10px; max-width: 500px; margin: 20px auto; text-align: center;">
+            <h2>Панель адміністратора: Додати новий товар</h2>
+            <div style="display: flex; flex-direction: column; gap: 10px; text-align: left; max-width: 350px; margin: 0 auto;">
+                <div>
+                    <label style="font-weight: bold; display: block; margin-bottom: 3px;">Nail item name</label>
+                    <input type="text" id="item-name" style="width: 100%; padding: 8px; border: 1px solid pink; border-radius: 5px;">
+                </div>
+                <div>
+                    <label style="font-weight: bold; display: block; margin-bottom: 3px;">Description (Категорія)</label>
+                    <input type="text" id="item-description" placeholder="наприклад: матеріали, інструменти" style="width: 100%; padding: 8px; border: 1px solid pink; border-radius: 5px;">
+                </div>
+                <div>
+                    <label style="font-weight: bold; display: block; margin-bottom: 3px;">Price</label>
+                    <input id="item-price" type="number" style="width: 100%; padding: 8px; border: 1px solid pink; border-radius: 5px;">
+                </div>
+                <div>
+                    <label style="font-weight: bold; display: block; margin-bottom: 3px;">Image URL</label>
+                    <input type="text" id="item-image" placeholder="images/ножниці .webp" style="width: 100%; padding: 8px; border: 1px solid pink; border-radius: 5px;">
+                </div>
+                <button class="btn-main" onclick="addItem()" style="margin-top: 10px; padding: 10px;">Add item</button>
+            </div>
+        </section>
 
-    <div id="product-grid" class="product-grid">
-        </div>
-    
-    <div id="pagination" class="pagination-container"></div>
-</section>
-
-    <section id="gallery-section">
-    <h2>Галерея ідей</h2>
-    <div id="gallery-grid" class="gallery-container">
-        </div>
-    
-    <div style="text-align: center; margin-top: 30px;">
-        <button id="load-more-btn" class="btn-main" onclick="loadMore()">Більше ідей</button>
-    </div>
-</section>
+        <section id="stats-section" class="section-padding">
+            <h2>Статистика товарів</h2>
+            <div class="chart-controls">
+                <button onclick="pokazatyGrafik('bar')">Гістограма</button>
+                <button onclick="pokazatyGrafik('pie')">Кругова</button>
+                <button onclick="pokazatyGrafik('line')">Лінійний графік</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="moiaDiagrama"></canvas>
+            </div>
+        </section>
     </main>
 
     <div id="subscribe-notification" class="notification hidden">
@@ -106,89 +129,86 @@
         <button id="sub-decline">Відмовитись</button>
     </div>
 
-   <div id="auth-modal" class="modal hidden">
-    <div class="modal-content">
-        <span class="close-modal" id="close-auth">❌</span>
-        <h2 id="titul">Вхід</h2>
-
-        <form id="forma">
-            <input type="text" id="log" placeholder="Логін *" required>
-            <input type="password" id="pas" placeholder="Пароль (мін. 6 знаків) *" required>
-            
-            <input type="password" id="pas2" class="hidden" placeholder="Повторіть пароль *">
-            
-            <p id="sos" style="color: red; font-size: 14px; margin: 10px;"></p>
-            
-            <button type="submit" id="knopka" class="btn-main">Увійти</button>
-        </form>
-
-        <p id="zmina" style="cursor: pointer; color: blue; margin-top: 15px; text-decoration: underline;">
-            Реєстрація
-        </p>
-    </div>
-</div>
-<section id="stats-section" class="section-padding">
-    <h2>Статистика товарів</h2>
-    
-    <div class="chart-controls">
-        <button onclick="pokazatyGrafik('bar')">Гістограма</button>
-        <button onclick="pokazatyGrafik('pie')">Кругова</button>
-        <button onclick="pokazatyGrafik('line')">Лінійний графік</button>
+    <div id="auth-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" id="close-auth">❌</span>
+            <h2 id="titul">Вхід</h2>
+            <form id="forma">
+                <input type="text" id="log" placeholder="Логін *" required>
+                <input type="password" id="pas" placeholder="Пароль (мін. 6 знаків) *" required>
+                <input type="password" id="pas2" class="hidden" placeholder="Повторіть пароль *">
+                <p id="sos" style="color: red; font-size: 14px; margin: 10px;"></p>
+                <button type="submit" id="knopka" class="btn-main">Увійти</button>
+            </form>
+            <p id="zmina" style="cursor: pointer; color: blue; margin-top: 15px; text-decoration: underline;">Реєстрація</p>
+        </div>
     </div>
 
-    <div class="chart-container">
-        <canvas id="moiaDiagrama"></canvas>
-    </div>
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <button id="scroll-to-top" class="hidden">↑ </button>
 
     <footer>
-        <p>&copy; 2026 Nail Master Pro. </p>
+        <p>&copy; 2026 Nail Master Pro.</p>
     </footer>
+
     <script src="script.js"></script>
-   <div id="cart-modal" class="modal hidden">
-    <div class="modal-content" style="padding: 20px; background: white;">
-        <span onclick="closeModal('cart-modal')" style="cursor:pointer">❌ Закрити</span>
+
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content" style="padding: 20px; background: white;">
+            <span onclick="closeModal('cart-modal')" style="cursor:pointer">❌ Закрити</span>
+            <h2>Твої товари:</h2>
+            <div id="cart-items-list">Кошик порожній ☹️</div>
+            <hr>
+            <p><b>Разом: <span id="vseho-groshiv">0</span> грн</b></p>
+            <button id="sendBtn" style="background: pink; padding: 10px;">Відправити замовлення</button>
+        </div>
+    </div>
+    <div id="profile-modal" class="modal hidden">
+    <div class="modal-content" style="padding: 20px; background: white; color: black; max-width: 400px; border-radius: 10px; border: 2px solid pink;">
+        <span class="close-profile-btn" onclick="closeModal('profile-modal')">❌</span>
+        <h2>Мій особистий кабінет</h2>
+        <hr style="border: 1px dashed pink;">
         
-        <h2>Твої товари:</h2>
-        <div id="cart-items-list">Кошик порожній ☹️</div>
-        
-        <hr>
-        <p><b>Разом: <span id="vseho-groshiv">0</span> грн</b></p>
-        <button id="sendBtn" style="background: pink; padding: 10px;">Відправити замовлення</button>
+        <div id="user-info-view">
+            <p><b>Логін:</b> <span id="profile-login">-</span></p>
+            <p><b>Телефон:</b> <span id="profile-phone">+380XXXXXXXXX</span></p>
+            <p><b>Адреса доставки:</b> <span id="profile-address">Не вказано</span></p>
+        </div>
+
+        <h3 style="margin-top: 20px;">Редагувати дані</h3>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <input type="password" id="new-profile-pass" placeholder="Новий пароль">
+            <input type="text" id="new-profile-phone" placeholder="Новий телефон">
+            <input type="text" id="new-profile-address" placeholder="Нова адреса">
+            <button class="btn-main" onclick="saveProfileData()" style="padding: 8px;">Зберегти зміни</button>
+        </div>
+
+       <h3 style="margin-top: 20px;">Історія замовлень</h3>
+        <div id="orders-history">
+            Поки що немає замовлень ☹️
+        </div>
+
+        <div style="margin-top: 25px; border-top: 1px dashed #ffdae0; padding-top: 15px;">
+            <button class="logout-profile-btn" onclick="logoutUser()">🚪 Вийти з акаунту</button>
+        </div>
     </div>
 </div>
 
-<div style="position: fixed; bottom: 0; width: 100%; background: pink; padding: 20px; z-index: 9999; text-align: center; border: 2px solid red;">
-
-    <p>Підписка на розсилку акцій 💅</p>
-
-    <button onclick="this.parentElement.style.display='none'; alert('Нарешті спрацювало!');">
-        Прийняти
-    </button>
-
-    <button onclick="this.parentElement.style.display='none';">
-        Відхилити
-    </button>
-    
-<div id="reklama" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; color:white; text-align:center; padding-top:100px;">
-    <div style="background:white; color:black; width:300px; margin:auto; padding:20px; border-radius:10px;">
-        <h2>🔥 ТІЛЬКИ СЬОГОДНІ! 🔥</h2>
-        <p>Знижка -50% на всі лаки при замовленні від 500 грн!</p>
-        <p>Зачекайте <b id="sek">5</b> сек...</p>
+    <div style="position: fixed; bottom: 0; width: 100%; background: pink; padding: 20px; z-index: 9999; text-align: center; border: 2px solid red;">
+        <p>Підписка на розсилку акцій 💅</p>
+        <button onclick="this.parentElement.style.display='none'; alert('Нарешті спрацювало!');">Прийняти</button>
+        <button onclick="this.parentElement.style.display='none';">Відхилити</button>
         
-        <button id="btn-close" disabled onclick="document.getElementById('reklama').style.display='none'">
-            Закрити
-        </button>
+        <div id="reklama" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; color:white; text-align:center; padding-top:100px;">
+            <div style="background:white; color:black; width:300px; margin:auto; padding:20px; border-radius:10px;">
+                <h2>🔥 ТІЛЬКИ СЬОГОДНІ! 🔥</h2>
+                <p>Знижка -50% на всі лаки при замовленні від 500 грн!</p>
+                <p>Зачекайте <b id="sek">5</b> сек...</p>
+                <button id="btn-close" disabled onclick="document.getElementById('reklama').style.display='none'">Закрити</button>
+            </div>
+        </div>
     </div>
-    
-</div>
-</div>
-<button id="vhoru" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-    ↑
-</button>
 
+    <button id="vhoru" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
 </body>
 </html>
