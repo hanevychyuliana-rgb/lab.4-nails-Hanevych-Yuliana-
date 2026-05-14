@@ -754,21 +754,17 @@ h2::after {
  
 }
 
-/* 3 лаб
-
-/* Стиль для самого вікна кошика */
 .modal-content {
     background-color: #ffffff;
     margin: 10% auto;
     padding: 25px;
-    border: 3px solid #fec0cb; /* ніжно-рожева рамка */
-    border-radius: 15px; /* закруглені кути */
+    border: 3px solid #fec0cb;
+    border-radius: 15px;
     width: 400px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     font-family: Arial, sans-serif;
 }
 
-/* Заголовок у кошику */
 .modal-content h2 {
     color: #d14d72;
     text-align: center;
@@ -776,7 +772,6 @@ h2::after {
     padding-bottom: 10px;
 }
 
-/* Список доданих товарів */
 #cart-items-list p {
     background: #fff5f7;
     padding: 10px;
@@ -787,7 +782,6 @@ h2::after {
     font-size: 14px;
 }
 
-/* Разом: сума */
 #cart-modal p b {
     display: block;
     font-size: 18px;
@@ -796,7 +790,6 @@ h2::after {
     color: #333;
 }
 
-/* Кнопка "Відправити замовлення" */
 #sendBtn {
     width: 100%;
     background-color: #fec0cb;
@@ -807,7 +800,7 @@ h2::after {
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s; /* щоб плавно змінювався колір */
+    transition: 0.3s;
 }
 
 #sendBtn:hover {
@@ -815,7 +808,6 @@ h2::after {
     color: white;
 }
 
-/* Кнопка "Закрити" */
 .close-modal {
     float: right;
     font-size: 20px;
@@ -826,19 +818,16 @@ h2::after {
 .close-modal:hover {
     color: #000;
 }
-/* Секція статистики */
 #stats-section {
     text-align: center;
     padding: 50px 5%;
-    background-color: #fffafa; /* ледь рожевий фон */
+    background-color: #fffafa;
 }
 
-/* Контейнер для кнопок */
 .chart-controls {
     margin-bottom: 30px;
 }
 
-/* Стильні рожеві кнопки */
 .chart-controls button {
     background-color: white;
     color: #ff477e;
@@ -851,7 +840,6 @@ h2::after {
     transition: all 0.3s ease;
 }
 
-/* Ефект при наведенні на кнопку */
 .chart-controls button:hover {
     background-color: #ff477e;
     color: white;
@@ -859,9 +847,8 @@ h2::after {
     transform: translateY(-2px);
 }
 
-/* Обгортка для графіка, щоб він був акуратним */
 .chart-container {
-    max-width: 600px; /* Обмежуємо ширину */
+    max-width: 600px; 
     margin: 0 auto;
     background: white;
     padding: 20px;
@@ -870,12 +857,10 @@ h2::after {
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-/* Щоб графік підлаштовувався під розмір екрану */
 #moiaDiagrama {
     width: 100% !important;
     height: auto !important;
 }
-/* Стиль для полів, які треба заповнити */
 #forma input {
     display: block;
     width: 100%;
@@ -885,12 +870,118 @@ h2::after {
     border-radius: 5px;
 }
 
-/* Червона лінія зліва для обов'язкових полів */
 #forma input:required {
     border-left: 5px solid pink;
 }
 
-/* Приховане поле */
 .hidden {
     display: none !important;
+}
+#profile-modal .modal-content {
+    background: #fffafb;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(209, 77, 114, 0.2);
+    max-width: 450px;
+    padding: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#profile-modal h2 {
+    color: #d14d72;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#user-info-view {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 5px solid #ffc0cb;
+    margin-bottom: 25px;
+}
+
+#user-info-view p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+#user-info-view b {
+    color: #d14d72;
+}
+
+#profile-modal input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ffdae0;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+#profile-modal input:focus {
+    outline: none;
+    border-color: #d14d72;
+    box-shadow: 0 0 5px rgba(209, 77, 114, 0.3);
+}
+
+#orders-history {
+    background: #fff0f3;
+    border: 1px solid #ffdae0;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.order-item {
+    background: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border-left: 3px solid #d14d72;
+    display: flex;
+    justify-content: space-between;
+}
+
+#profile-modal .btn-main {
+    background: linear-gradient(135deg, #f15e80, #d14d72);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+#profile-modal .btn-main:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(209, 77, 114, 0.4);
+}
+.logout-profile-btn {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.logout-profile-btn:hover {
+    background: #e60000;
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
 }
